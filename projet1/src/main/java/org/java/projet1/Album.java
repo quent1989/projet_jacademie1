@@ -1,6 +1,6 @@
 package org.java.projet1;
 
-import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Set;
 
 public class Album {
@@ -11,7 +11,10 @@ public class Album {
 	
 	private Set<Chanson> listeChansons;
 	
-	public Album(Integer codeAlbum, String nom, Chanson chansons) {
+	public Album(Integer codeAlbum, String nom) {
+		this.codeAlbum = codeAlbum;
+		this.nom = nom;
+		this.listeChansons = new HashSet<Chanson>();
 		
 	}
 
