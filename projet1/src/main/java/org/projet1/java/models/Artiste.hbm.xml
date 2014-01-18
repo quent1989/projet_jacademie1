@@ -11,16 +11,14 @@
 			<generator class="identity" />
 		</id>
 		
-		<id name="nomArtiste" type="string">
-			<column name="NOM_ARTISTE" />
-		</id>
+		<property name="nom" type="string">
+			<column name="NOM_ARTISTE" length="80"/>
+		</property>
 		
 		
-		<id name="nomAlbum" type="string">
-			<column name="NOM_ALBUM" />
-		</id>
-		
-
+		<property name="album" type="string">
+			<column name="NOM_ALBUM" length="80"/>
+		</property>
 
 	</class>  
 	

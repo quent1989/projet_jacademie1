@@ -3,15 +3,15 @@ package org.projet1.java.models;
 public class Artiste {
 	
 	private Integer codeArtiste;	
-	private String nom;	
-	private Album album;
+	private String nomArtiste;	
+	private String nomAlbum;
 	
 	//	Constructeur
-	public Artiste(Integer codeArtiste, String nom, Album album) {
+	public Artiste(Integer codeArtiste, String nom, String album) {
 		
 		this.codeArtiste = codeArtiste;
-		this.nom = nom;
-		this.album = album;
+		this.nomArtiste = nom;
+		this.nomAlbum = album;
 	}
 	
 	//	Getters Setters
@@ -24,19 +24,19 @@ public class Artiste {
 	}
 
 	public String getNom() {
-		return nom;
+		return nomArtiste;
 	}
 
 	public void setNom(String nom) {
-		this.nom = nom;
+		this.nomArtiste = nom;
 	}
 
-	public Album getAlbum() {
-		return album;
+	public String getAlbum() {
+		return nomAlbum;
 	}
 
-	public void setAlbum(Album album) {
-		this.album = album;
+	public void setAlbum(String album) {
+		this.nomAlbum = album;
 	}	
 
 }
