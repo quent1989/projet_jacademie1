@@ -6,6 +6,8 @@ public class ReadFile {
 	
 	private static Logger logger = Logger.getLogger(ReadFile.class);
 	
-	
+	public void getPathToFile() {
+		
+	}
 
 }
