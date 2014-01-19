@@ -2,6 +2,7 @@
 .classpath
 .project
 .settings/
+.metadata/
 projet1/database.log
 projet1/database.lck
 
