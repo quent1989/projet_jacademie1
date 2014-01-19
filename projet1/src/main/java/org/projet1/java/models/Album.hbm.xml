@@ -15,10 +15,12 @@
 			<column name="NOM_ALBUM" length="80"/>
 		</property>
 		
-		<many-to-one name="chanson" class="Chanson" column="TITRE"
-			lazy="false" />
+		<bag name="listeChansons" lazy="false" cascade="all,delete-orphan">
+			<key column="LISTE_CHANSONS" not-null="true" />
+			<one-to-many class="Chanson" />
+		</bag>
 		
-
+		
 
 	</class>  
 	

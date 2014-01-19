@@ -27,7 +27,6 @@ public class LiveMain {
 		Album album1 = new Album(1, "Album1");
 		Album album2 = new Album(2, "Album2");
 
-
 		
 		Artiste artiste1 = new Artiste(1, "Goldman", album1.getNom());
 		Artiste artiste2 = new Artiste(2, "Shakira", album2.getNom());
@@ -38,24 +37,22 @@ public class LiveMain {
 		Chanson chanson1 = new Chanson(1, "Waka Waka", 200);
 		Chanson chanson2 = new Chanson(2, "Rabiosa", 250);
 		
+		session.save(chanson1);
+		session.save(chanson2);
+		
 		Collection<String> listeChansons = new ArrayList<String>();
 		listeChansons.add(chanson1.getTitre());
 		
+		album1.setListeChansons(listeChansons);
+		
+		listeChansons.add(chanson2.getTitre());
+		album2.setListeChansons(listeChansons);
 		
 		session.save(album1);
 		session.save(album2);
-		
-
-		
-		session.save(chanson1);
-		session.save(chanson2);
-
-		
 
 		session.getTransaction().commit();
-
-		session.close();
-		
+		session.close();		
 		sessionFactory.close();
 
 	}

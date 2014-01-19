@@ -2,8 +2,6 @@ package org.projet1.java.models;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
 
 public class Album {
 	
@@ -42,18 +40,6 @@ public class Album {
 
 	public void setListeChansons(Collection<String> listeChansons) {
 		this.listeChansons = listeChansons;
-	}
-	
-	public String getChanson() {
-		return listeChansons.toString();
-	}
-	
-	public void setChanson (String chanson) {
-		listeChansons.add(chanson);
-	}
-	
-	
-	
-	
+	}	
 
 }
