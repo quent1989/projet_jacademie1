@@ -4,14 +4,15 @@ public class Chanson {
 	
 	private String titre;
 	
-	private Integer duree;
+	private Integer dureeChanson;
 	
-	private Integer numero;
+	private Integer numChanson;
 	
-	public Chanson(String titre, Integer duree, Integer numero) {
+	public Chanson(Integer numChanson, String titre, Integer dureeChanson) {
+		this.numChanson = numChanson;
 		this.titre = titre;
-		this.duree = duree;
-		this.numero = numero;
+		this.dureeChanson = dureeChanson;
+
 		
 	}
 
@@ -23,21 +24,24 @@ public class Chanson {
 		this.titre = titre;
 	}
 
-	public Integer getDuree() {
-		return duree;
+	
+
+	public Integer getDureeChanson() {
+		return dureeChanson;
 	}
 
-	public void setDuree(Integer duree) {
-		this.duree = duree;
+	public void setDureeChanson(Integer dureeChanson) {
+		this.dureeChanson = dureeChanson;
 	}
 
-	public Integer getNumero() {
-		return numero;
+	public Integer getNumChanson() {
+		return numChanson;
 	}
 
-	public void setNumero(Integer numero) {
-		this.numero = numero;
+	public void setNumChanson(Integer numChanson) {
+		this.numChanson = numChanson;
 	}
+
 	
 	
 

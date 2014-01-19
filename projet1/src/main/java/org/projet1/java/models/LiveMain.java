@@ -1,6 +1,11 @@
 package org.projet1.java.models;
 
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -29,6 +34,22 @@ public class LiveMain {
 
 		session.save(artiste1);
 		session.save(artiste2);
+		
+		Chanson chanson1 = new Chanson(1, "Waka Waka", 200);
+		Chanson chanson2 = new Chanson(2, "Rabiosa", 250);
+		
+		Collection<String> listeChansons = new ArrayList<String>();
+		listeChansons.add(chanson1.getTitre());
+		
+		
+		session.save(album1);
+		session.save(album2);
+		
+
+		
+		session.save(chanson1);
+		session.save(chanson2);
+
 		
 
 		session.getTransaction().commit();
