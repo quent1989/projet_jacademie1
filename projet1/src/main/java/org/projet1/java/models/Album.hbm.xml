@@ -3,26 +3,25 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="org.projet1.java.models">
-	<class name="Album" table="ALBUM">
+	<class name="Album" table="Album">
 
-		
+
 		<id name="codeAlbum" type="integer">
 			<column name="CODE_ALBUM" />
 			<generator class="identity" />
 		</id>
-		
-		<property name="nom" type="string">
-			<column name="NOM_ALBUM" length="80"/>
-		</property>
-		
-		<bag name="listeChansons" lazy="false" cascade="all,delete-orphan">
-			<key column="LISTE_CHANSONS" not-null="true" />
-			<one-to-many class="Chanson" />
-		</bag>
-		
-		
 
-	</class>  
-	
-	
+		<property name="nomAlbum" type="string">
+			<column name="NOM_ALBUM" length="80" />
+		</property>
+
+		<bag name="listeChansons" lazy="false" cascade="all,delete-orphan">
+			<key column="LISTE_CHANSONS" not-null="false" />
+			<one-to-many class="Album" />
+		</bag>
+
+
+	</class>
+
+
 </hibernate-mapping>

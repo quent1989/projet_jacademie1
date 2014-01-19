@@ -1,6 +1,8 @@
 package org.projet1.java.reader;
 
 import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -18,19 +20,30 @@ public class ReadFile {
 		System.out.println("Please enter folder's path : ");
 		Scanner scanner = new Scanner(System.in);
 		String folderPath = scanner.nextLine();
+		scanner.close();
 		
 		File folder = new File(folderPath);
 		File [] listOfFiles = folder.listFiles();
-		Date date = new Date();
+		SimpleDateFormat date = new SimpleDateFormat();
+		date.applyPattern("yyyyMMDD_HHmmSS");
+		Date today = new Date();
+		
+		File saveFolder = new File(folderPath + "\\processed_" + date.format(today));
+		
+		try {
+			FileUtils.forceMkdir(saveFolder);
+		} catch (IOException e1) {
+			System.out.println("Error while creating " + saveFolder);
+			e1.printStackTrace();
+		}
 		
 		try {
 			for (File file : listOfFiles) {
 				if(file.getName().contains(".music")){
-					result += FileUtils.readFileToString(file) + " ";
-					File saveFolder = new File(folderPath + "\\processed_" + new Date());
-					FileUtils.forceMkdir(saveFolder);
-					FileUtils.copyFileToDirectory(file, saveFolder);
 					
+					result += FileUtils.readFileToString(file);
+					FileUtils.copyFileToDirectory(file, saveFolder);
+					FileUtils.forceDelete(file);
 				}
 			}
 			

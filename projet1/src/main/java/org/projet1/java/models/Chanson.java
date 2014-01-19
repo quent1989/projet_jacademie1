@@ -2,24 +2,24 @@ package org.projet1.java.models;
 
 public class Chanson {
 	
+	private String titre;	
+	private Integer dureeChanson;	
 	private Integer numChanson;
-	private String titreChanson;
-	private Integer dureeChanson;
 	
 	public Chanson(Integer numChanson, String titre, Integer dureeChanson) {
 		this.numChanson = numChanson;
-		this.titreChanson = titre;
+		this.titre = titre;
 		this.dureeChanson = dureeChanson;
 
 		
 	}
 
 	public String getTitre() {
-		return titreChanson;
+		return titre;
 	}
 
 	public void setTitre(String titre) {
-		this.titreChanson = titre;
+		this.titre = titre;
 	}
 
 	

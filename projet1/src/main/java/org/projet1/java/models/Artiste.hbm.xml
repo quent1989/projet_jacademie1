@@ -20,6 +20,7 @@
 			<column name="NOM_ALBUM" length="80"/>
 		</property>
 		
+		
 
 	</class>  
 	

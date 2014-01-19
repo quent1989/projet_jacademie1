@@ -2,18 +2,20 @@ package org.projet1.java.models;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Album {
 	
 	private Integer codeAlbum;	
-	private String nom;	
-	private Collection<String> listeChansons;
+	private String nomAlbum;	
+	private Collection<Chanson> listeChansons;
 	
 	//	Constructeur
-	public Album(Integer codeAlbum, String nom) {
+	public Album(Integer codeAlbum, String nomAlbum, Collection<Chanson> listeChansons) {
 		this.codeAlbum = codeAlbum;
-		this.nom = nom;
-		this.listeChansons = new ArrayList<String>();
+		this.nomAlbum = nomAlbum;
+		this.listeChansons = new ArrayList<Chanson>();
 		
 	}
 	
@@ -26,20 +28,25 @@ public class Album {
 		this.codeAlbum = codeAlbum;
 	}
 
-	public String getNom() {
-		return nom;
+	public String getNomAlbum() {
+		return nomAlbum;
 	}
 
-	public void setNom(String nom) {
-		this.nom = nom;
+	public void setNomAlbum(String nomAlbum) {
+		this.nomAlbum = nomAlbum;
 	}
 
-	public Collection<String> getListeChansons() {
+	public Collection<Chanson> getListeChansons() {
 		return listeChansons;
 	}
 
-	public void setListeChansons(Collection<String> listeChansons) {
+	public void setListeChansons(Collection<Chanson> listeChansons) {
 		this.listeChansons = listeChansons;
-	}	
+	}
+
+
+	
+
+	
 
 }

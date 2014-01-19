@@ -17,7 +17,7 @@
 		
 		
 		<property name="dureeChanson" type="integer">
-			<column name="DUREE_CHANSON" />
+			<column name="DUREE_CHANSON" length="80"/>
 		</property>
 
 	</class>  
