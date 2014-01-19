@@ -19,6 +19,8 @@
 		
 		<!-- Mapping files -->
 		<mapping resource="org/projet1/java/models/Artiste.hbm.xml" />
+		<mapping resource="org/projet1/java/models/Album.hbm.xml" />
+		<mapping resource="org/projet1/java/models/Chanson.hbm.xml" />
 
 
 	</session-factory>

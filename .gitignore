@@ -2,8 +2,8 @@
 .classpath
 .project
 .settings/
-*.log
-*.lck
+projet1/database.log
+projet1/database.lck
 
 # Maven
 log/

@@ -3,24 +3,22 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="org.projet1.java.models">
-	<class name="Artiste" table="ARTISTE">
+	<class name="Album" table="ALBUM">
 
 		
-		<id name="codeArtiste" type="integer">
-			<column name="CODE_ARTISTE" />
+		<id name="codeAlbum" type="integer">
+			<column name="CODE_ALBUM" />
 			<generator class="identity" />
 		</id>
 		
 		<property name="nom" type="string">
-			<column name="NOM_ARTISTE" length="80"/>
-		</property>
-		
-		
-		<property name="album" type="string">
 			<column name="NOM_ALBUM" length="80"/>
 		</property>
 		
+		<many-to-one name="chanson" class="Chanson" column="TITRE"
+			lazy="false" />
 		
+
 
 	</class>  
 	
