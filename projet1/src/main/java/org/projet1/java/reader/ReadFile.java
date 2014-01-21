@@ -43,18 +43,19 @@ public class ReadFile {
 			e1.printStackTrace();
 		}
 		
-		Artiste art = new Artiste();
-		Album alb = new Album();
-		Chanson chan = new Chanson();
-		
 		try {
 			for (File file : listOfFiles) {
 				if(file.getName().contains(".music")){
 					
-					lines = FileUtils.readLines(file);
+					lines = FileUtils.readLines(file);					
 					
 					for (String line : lines) {
+						
 						String[] elements = line.split(",", 7);
+						
+						Artiste art = new Artiste();
+						Album alb = new Album();
+						Chanson chan = new Chanson();
 						
 						art.setCodeArtiste(Integer.decode(elements[0]));
 						art.setAlbum(elements[3]);
@@ -69,7 +70,11 @@ public class ReadFile {
 						
 						alb.setCodeAlbum(Integer.decode(elements[2]));
 						alb.setNomAlbum(elements[3]);
-						alb.setListeChansons(listeChansonsAlbum);						
+						alb.setListeChansons(listeChansonsAlbum);
+						
+						artistes.add(art);
+						albums.add(alb);
+						chansons.add(chan);
 					}
 					
 					FileUtils.copyFileToDirectory(file, saveFolder);
