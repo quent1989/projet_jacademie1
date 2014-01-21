@@ -19,6 +19,10 @@
 		<property name="dureeChanson" type="integer">
 			<column name="DUREE_CHANSON" length="80"/>
 		</property>
+		
+		<property name="nomAlbum" type="string">
+			<column name="ALBUM" length="80"/>
+		</property>
 
 	</class>  
 	

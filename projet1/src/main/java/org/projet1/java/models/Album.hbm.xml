@@ -15,11 +15,6 @@
 			<column name="NOM_ALBUM" length="80" />
 		</property>
 
-		<bag name="listeChansons" lazy="false" cascade="all,delete-orphan">
-			<key column="LISTE_CHANSONS" not-null="false" />
-			<one-to-many class="Album" />
-		</bag>
-
 
 	</class>
 

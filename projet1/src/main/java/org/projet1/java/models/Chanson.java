@@ -2,25 +2,34 @@ package org.projet1.java.models;
 
 public class Chanson {
 	
-	private Integer numChanson;
-	
-	private String titre;
-	
+	private Integer numChanson;	
+	private String titre;	
 	private Integer dureeChanson;
+	private String nomAlbum;
 
 	// Constructeur
 	public Chanson() {
 		super();
 	}
 	
-	public Chanson(Integer numChanson, String titre, Integer dureeChanson) {
+	public Chanson(Integer numChanson, String titre, Integer dureeChanson, String nomAlbum) {
 		this.numChanson = numChanson;
 		this.titre = titre;
 		this.dureeChanson = dureeChanson;
+		this.nomAlbum = nomAlbum;
 
 		
 	}
 	
+	
+	// Getters Setters
+	public String getNomAlbum() {
+		return nomAlbum;
+	}
+
+	public void setNomAlbum(String nomAlbum) {
+		this.nomAlbum = nomAlbum;
+	}
 
 	public Integer getNumChanson() {
 		return numChanson;

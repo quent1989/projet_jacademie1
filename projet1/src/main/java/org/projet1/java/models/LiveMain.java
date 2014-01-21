@@ -19,22 +19,24 @@ public class LiveMain {
 	public static void main(String[] args) {
 
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-
 		Session session = sessionFactory.openSession();
-
 		session.beginTransaction();
 		
+		
+		logger.info("Debut test de la BDD");
 		Collection<Chanson> listeChansons = new ArrayList<Chanson>();
 
+		Album album1 = new Album(1, "Album1", listeChansons);
+		Album album2 = new Album(2, "Album2", listeChansons);
 		
-		Chanson chanson1 = new Chanson(1, "Waka Waka", 200);
-		Chanson chanson2 = new Chanson(2, "Rabiosa", 250);
+		Chanson chanson1 = new Chanson(1, "Waka Waka", 200, album1.getNomAlbum());
+		Chanson chanson2 = new Chanson(2, "Rabiosa", 250, album2.getNomAlbum());
 	
 		listeChansons.add(chanson1);
 		listeChansons.add(chanson2);
 		
-		Album album1 = new Album(1, "Album1", listeChansons);
-		Album album2 = new Album(2, "Album2", listeChansons);
+		album1.setListeChansons(listeChansons);
+		album2.setListeChansons(listeChansons);
 
 		Artiste artiste1 = new Artiste(1, "Goldman", album1.getNomAlbum());
 		Artiste artiste2 = new Artiste(2, "Shakira", album2.getNomAlbum());
@@ -47,72 +49,67 @@ public class LiveMain {
 		
 		session.save(chanson1);
 		session.save(chanson2);
+		logger.info("fin tests de la BDD");
 		
 		
+		logger.info("Lecture fichiers .music et alimentation de la BDD");
 		Collection<Artiste> artistes = new ArrayList<Artiste>();
 		Collection<Album> albums = new ArrayList<Album>();
 		Collection<Chanson> chansons = new ArrayList<Chanson>();
 		
 		ReadFile.FileReader(artistes, albums, chansons);
 		
+		logger.info("Ajout des artistes à la BDD");
 		for (Artiste artiste : artistes) {
 			session.save(artiste);
 		}
 		
+		logger.info("Ajout des albums à la BDD");
 		for (Album album : albums) {
-			//session.save(album);
+			session.save(album);
 		}
 		
+		logger.info("Ajout des chansons à la BDD");
 		for (Chanson chanson : chansons) {
 			session.save(chanson);
 		}
 
 		session.getTransaction().commit();
 		
-		Query hqlQuery1 = session.createQuery("FROM Album");
 		
+		logger.info("Préparation des requetes SQL");
+		Query hqlQuery1 = session.createQuery("FROM Album");		
 		Query hqlQuery2 = session.createQuery("FROM Artiste");
-
 		Query hqlQuery3 = session.createQuery("FROM Chanson");
 
-		
+		logger.info("Récupération des données Album de la BDD");
 		List<Album> listAlbum = hqlQuery1.list();
 		
-		logger.info("Requête pour chercher les albums et les afficher : ");
-		
+		logger.info("Albums dans la BDD :");
 		for (Album album : listAlbum) {
-			System.out.println(album.toString());
-			
+			logger.info(album.toString());			
 		}
 		
-		logger.info("Requête pour chercher les artistes et les afficher : ");
-
+		logger.info("Récupération des données Artistes de la BDD");
 		List<Artiste> listArtiste = hqlQuery2.list();
 		
+		logger.info("Artistes dans la BDD :");
 		for (Artiste artiste : listArtiste) {
-			System.out.println(artiste.toString());
+			logger.info(artiste.toString());
 		} 
 		
-		logger.info("Requête pour chercher les chansons et les afficher : ");
-
+		logger.info("Récupération des données Chanson de la BDD");
 		List<Chanson> listChanson = hqlQuery3.list();
 		
+		logger.info("Chansons dans la BDD :");		
 		for (Chanson chanson : listChanson) {
-			System.out.println(chanson.toString());
+			logger.info(chanson.toString());
 		}
 		
-		
 
-
-		session.close();
-		
+		session.close();		
 		sessionFactory.close();
 		
-		
-
-
-
 	}
-
 
 }
