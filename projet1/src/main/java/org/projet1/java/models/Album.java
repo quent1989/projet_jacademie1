@@ -14,6 +14,7 @@ public class Album {
 	//	Constructeur
 	public Album() {
 		super();
+		this.listeChansons = new ArrayList<Chanson>();
 	}
 	
 	public Album(Integer codeAlbum, String nomAlbum, Collection<Chanson> listeChansons) {

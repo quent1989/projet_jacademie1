@@ -29,34 +29,27 @@ public class LiveMain {
 		
 		Chanson chanson1 = new Chanson(1, "Waka Waka", 200);
 		Chanson chanson2 = new Chanson(2, "Rabiosa", 250);
-
-
-		
+	
 		listeChansons.add(chanson1);
 		listeChansons.add(chanson2);
 		
 		Album album1 = new Album(1, "Album1", listeChansons);
 		Album album2 = new Album(2, "Album2", listeChansons);
 
-
-		
 		Artiste artiste1 = new Artiste(1, "Goldman", album1.getNomAlbum());
 		Artiste artiste2 = new Artiste(2, "Shakira", album2.getNomAlbum());
 
 		session.save(artiste1);
 		session.save(artiste2);
-
-		
-
-		
 		
 		session.save(album1);
 		session.save(album2);
 		
-
-		
 		session.save(chanson1);
 		session.save(chanson2);
+		
+		
+		
 		
 		
 
@@ -71,21 +64,23 @@ public class LiveMain {
 		
 		List<Album> listAlbum = hqlQuery1.list();
 		
+		logger.info("Requête pour chercher les albums et les afficher : ");
+		
 		for (Album album : listAlbum) {
 			System.out.println(album.toString());
 			
 		}
 		
+		logger.info("Requête pour chercher les artistes et les afficher : ");
 
-		
 		List<Artiste> listArtiste = hqlQuery2.list();
 		
 		for (Artiste artiste : listArtiste) {
 			System.out.println(artiste.toString());
 		} 
 		
+		logger.info("Requête pour chercher les chansons et les afficher : ");
 
-		
 		List<Chanson> listChanson = hqlQuery3.list();
 		
 		for (Chanson chanson : listChanson) {
