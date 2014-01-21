@@ -12,6 +12,10 @@ public class Album {
 	private Collection<Chanson> listeChansons;
 	
 	//	Constructeur
+	public Album() {
+		super();
+	}
+	
 	public Album(Integer codeAlbum, String nomAlbum, Collection<Chanson> listeChansons) {
 		this.codeAlbum = codeAlbum;
 		this.nomAlbum = nomAlbum;
@@ -42,6 +46,12 @@ public class Album {
 
 	public void setListeChansons(Collection<Chanson> listeChansons) {
 		this.listeChansons = listeChansons;
+	}
+
+	@Override
+	public String toString() {
+		return "Album [codeAlbum=" + codeAlbum + ", nomAlbum=" + nomAlbum
+				+ ", listeChansons=" + listeChansons + "]";
 	}
 
 

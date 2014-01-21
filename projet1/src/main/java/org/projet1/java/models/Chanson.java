@@ -2,9 +2,16 @@ package org.projet1.java.models;
 
 public class Chanson {
 	
-	private String titre;	
-	private Integer dureeChanson;	
 	private Integer numChanson;
+	
+	private String titre;
+	
+	private Integer dureeChanson;
+
+	// Constructeur
+	public Chanson() {
+		super();
+	}
 	
 	public Chanson(Integer numChanson, String titre, Integer dureeChanson) {
 		this.numChanson = numChanson;
@@ -12,6 +19,15 @@ public class Chanson {
 		this.dureeChanson = dureeChanson;
 
 		
+	}
+	
+
+	public Integer getNumChanson() {
+		return numChanson;
+	}
+
+	public void setNumChanson(Integer numChanson) {
+		this.numChanson = numChanson;
 	}
 
 	public String getTitre() {
@@ -32,13 +48,18 @@ public class Chanson {
 		this.dureeChanson = dureeChanson;
 	}
 
-	public Integer getNumChanson() {
-		return numChanson;
+
+	@Override
+	public String toString() {
+		return "Chanson [numChanson=" + numChanson + ", titre=" + titre
+				+ ", dureeChanson=" + dureeChanson + "]";
 	}
 
-	public void setNumChanson(Integer numChanson) {
-		this.numChanson = numChanson;
-	}
+
+
+	
+	
+	
 
 	
 	

@@ -7,6 +7,10 @@ public class Artiste {
 	private String nomAlbum;
 	
 	//	Constructeur
+	public Artiste() {
+		super();
+	}
+	
 	public Artiste(Integer codeArtiste, String nom, String album) {
 		
 		this.codeArtiste = codeArtiste;
@@ -37,6 +41,14 @@ public class Artiste {
 
 	public void setAlbum(String album) {
 		this.nomAlbum = album;
+	}
+
+	@Override
+	public String toString() {
+		return "Artiste [codeArtiste=" + codeArtiste + ", nomArtiste="
+				+ nomArtiste + ", nomAlbum=" + nomAlbum + "]";
 	}	
+	
+	
 
 }
