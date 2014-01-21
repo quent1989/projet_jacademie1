@@ -49,9 +49,23 @@ public class LiveMain {
 		session.save(chanson2);
 		
 		
+		Collection<Artiste> artistes = new ArrayList<Artiste>();
+		Collection<Album> albums = new ArrayList<Album>();
+		Collection<Chanson> chansons = new ArrayList<Chanson>();
 		
+		ReadFile.FileReader(artistes, albums, chansons);
 		
+		for (Artiste artiste : artistes) {
+			session.save(artiste);
+		}
 		
+		for (Album album : albums) {
+			//session.save(album);
+		}
+		
+		for (Chanson chanson : chansons) {
+			session.save(chanson);
+		}
 
 		session.getTransaction().commit();
 		
